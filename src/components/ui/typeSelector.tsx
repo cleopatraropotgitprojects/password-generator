@@ -3,6 +3,7 @@ const TYPES = [
   "cnp",
   "cnp validator",
   "cui",
+  "cui validator",
   "iban",
   "name",
   "phone",

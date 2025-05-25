@@ -5,6 +5,8 @@ import PasswordGenerator from "@/components/generator/paasword-generator";
 import TypeSelector from "@/components/ui/typeSelector";
 import CNPGenerator from "@/components/generator/cnp-generator";
 import CNPValidator from "@/components/generator/cnp-validator";
+import CUIGenerator from "@/components/generator/cui-generator";
+import CUIValidator from "@/components/generator/cui-validator";
 
 export default function UniversalGenerator() {
   const [activeType, setActiveType] = useState("password");
@@ -15,6 +17,8 @@ export default function UniversalGenerator() {
       {activeType === "password" && <PasswordGenerator />}
       {activeType === "cnp" && <CNPGenerator />}
       {activeType === "cnp validator" && <CNPValidator />}
+      {activeType === "cui" && <CUIGenerator />}
+      {activeType === "cui validator" && <CUIValidator />}
     </div>
   );
 }
