@@ -1,4 +1,12 @@
-const TYPES = ["password", "cnp", "cui", "iban", "name", "phone"];
+const TYPES = [
+  "password",
+  "cnp",
+  "cnp validator",
+  "cui",
+  "iban",
+  "name",
+  "phone",
+];
 
 export default function TypeSelector({
   activeType,
