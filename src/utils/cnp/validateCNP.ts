@@ -1,6 +1,10 @@
 import { RO_COUNTY } from "@/utils/cnp/county";
 
-export function validateCNP(cnp: string): { valid: boolean; message: string } {
+export function validateCNP(cnp: string): {
+  valid: boolean;
+  message: string;
+  validFrom?: string;
+} {
   if (!/^\d{13}$/.test(cnp)) {
     return {
       valid: false,
@@ -58,5 +62,13 @@ export function validateCNP(cnp: string): { valid: boolean; message: string } {
     return { valid: false, message: "Cifra de control este greșită." };
   }
 
-  return { valid: true, message: "CNP valid ✅" };
+  const validFrom = `${zz.toString().padStart(2, "0")}.${ll
+    .toString()
+    .padStart(2, "0")}.${fullYear}`;
+
+  return {
+    valid: true,
+    message: "CNP valid ✅",
+    validFrom,
+  };
 }

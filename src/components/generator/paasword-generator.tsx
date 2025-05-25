@@ -50,31 +50,27 @@ export default function PasswordGenerator() {
 
   return (
     <BlurFade delay={BLUR_FADE_DELAY}>
-      <section className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl mx-auto rounded-2xl shadow-xl bg-white/40 backdrop-blur-md border border-white/30 px-4 sm:px-6 py-6 space-y-4 min-h-[470px]">
+      <section className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl mx-auto rounded-2xl shadow-xl bg-white/40 backdrop-blur-md border border-violet-400/40 px-4 sm:px-6 py-6 space-y-6 min-h-[470px]">
         <BlurFadeText
           delay={BLUR_FADE_DELAY}
-          className="text-xl font-bold text-center"
+          className="text-2xl font-semibold text-center text-gray-900"
           text="Password generator"
         />
         <BlurFadeText
           delay={BLUR_FADE_DELAY + 0.03}
-          className="text-sm text-center text-muted-foreground"
+          className="text-sm text-center text-gray-600"
           text="Generate strong unique passwords"
         />
 
-        <div className="bg-yellow-100 rounded-md px-4 py-3 flex items-center gap-3 justify-between min-h-[56px]">
-          <div className="flex-1 pr-2">
-            <span
-              className="font-mono text-lg break-all text-left block"
-              style={{ wordBreak: "break-word" }}
-            >
-              {password}
-            </span>
+        {/* Password Box */}
+        <div className="bg-violet-50/80 rounded-xl px-4 py-4 flex items-center justify-between gap-4 min-h-[64px] border border-violet-200 shadow-inner">
+          <div className="flex-1 font-mono text-lg break-words text-left pr-2 select-all">
+            {password}
           </div>
           <div className="flex gap-2 shrink-0">
             <button
               onClick={copyToClipboard}
-              className="bg-black text-white px-3 py-1 text-sm rounded-md"
+              className="px-4 py-1.5 rounded-full text-sm font-medium bg-gradient-to-r from-violet-700 to-indigo-600 text-white shadow hover:scale-[1.03] transition"
             >
               {copied ? "Copied!" : "Copy"}
             </button>
@@ -83,32 +79,35 @@ export default function PasswordGenerator() {
                 setCopied(false);
                 setPassword(generatePassword({ length, ...settings }));
               }}
-              className="bg-gray-200 p-1 rounded-md"
+              className="p-2 rounded-full bg-white/50 hover:bg-white/70 border border-violet-300 backdrop-blur-md transition"
             >
               ↻
             </button>
           </div>
         </div>
 
+        {/* Strength */}
         <p className={`text-xs text-center italic ${strengthColor[strength]}`}>
           {strengthText[strength]}
         </p>
 
-        <div className="space-y-4">
-          <div>
-            <label className="text-sm block mb-1">
-              Password length: <span className="font-medium">{length}</span>
-            </label>
-            <input
-              type="range"
-              min={4}
-              max={20}
-              value={length}
-              onChange={(e) => setLength(Number(e.target.value))}
-              className="w-full h-[2px] accent-black"
-            />
-          </div>
+        {/* Slider */}
+        <div className="space-y-2">
+          <label className="text-sm block font-medium text-gray-700">
+            Password length: <span className="font-semibold">{length}</span>
+          </label>
+          <input
+            type="range"
+            min={4}
+            max={20}
+            value={length}
+            onChange={(e) => setLength(Number(e.target.value))}
+            className="w-full h-2 rounded-full accent-violet-700 bg-violet-200"
+          />
+        </div>
 
+        {/* Toggles */}
+        <div className="space-y-4 pt-2">
           <Toggle
             label="Include Uppercase Letters"
             checked={settings.includeUppercase}
@@ -152,17 +151,19 @@ function Toggle({
 }) {
   return (
     <BlurFade delay={delay}>
-      <label className="flex items-center justify-between text-sm text-black">
+      <label className="flex items-center justify-between text-sm font-medium text-gray-900">
         {label}
         <div
           onClick={onChange}
-          className={`w-10 h-5 flex items-center rounded-full p-1 cursor-pointer transition-all ${
-            checked ? "bg-black" : "bg-gray-300"
+          className={`w-11 h-6 flex items-center rounded-full px-[3px] py-[2px] cursor-pointer transition-all shadow-inner border ${
+            checked
+              ? "bg-gradient-to-r from-violet-600 to-indigo-600 border-violet-700"
+              : "bg-gray-200 hover:bg-gray-300/80 border-gray-300"
           }`}
         >
           <div
-            className={`w-4 h-4 bg-white rounded-full transform transition-transform ${
-              checked ? "translate-x-4" : "translate-x-0"
+            className={`w-4 h-4 rounded-full bg-white shadow-md transform transition-transform duration-200 ease-out ${
+              checked ? "translate-x-5" : "translate-x-0"
             }`}
           />
         </div>
