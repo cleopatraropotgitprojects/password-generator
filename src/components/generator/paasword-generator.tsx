@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
-import { generatePassword } from "@/utils/generate-password";
-import { evaluateStrength } from "@/utils/evaluate-strength";
+import { generatePassword } from "@/utils/password/generate-password";
+import { evaluateStrength } from "@/utils/password/evaluate-strength";
 
 const BLUR_FADE_DELAY = 0.04;
 
