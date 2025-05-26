@@ -19,7 +19,6 @@ export default function IBANGenerator() {
   const copy = async () => {
     await navigator.clipboard.writeText(iban);
     setCopied(true);
-    setTimeout(() => setCopied(false), 3000);
   };
 
   return (
@@ -29,7 +28,6 @@ export default function IBANGenerator() {
           IBAN Generator
         </h2>
 
-        {/* Generate button */}
         <button
           onClick={generate}
           className="w-full bg-gradient-to-r from-violet-700 to-indigo-600 text-white rounded-full py-3 text-sm font-medium shadow hover:scale-[1.03] transition"
@@ -37,7 +35,6 @@ export default function IBANGenerator() {
           Generează IBAN
         </button>
 
-        {/* Result */}
         {iban && (
           <>
             <div className="text-center text-violet-700 font-mono text-lg break-all">

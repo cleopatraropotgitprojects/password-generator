@@ -19,7 +19,6 @@ export default function CUIGenerator() {
   const copy = async () => {
     await navigator.clipboard.writeText(cui);
     setCopied(true);
-    setTimeout(() => setCopied(false), 3000);
   };
 
   return (
@@ -30,7 +29,6 @@ export default function CUIGenerator() {
         </h2>
 
         <div className="space-y-4">
-          {/* Switch pentru prefix RO */}
           <div className="flex items-center justify-between">
             <label className="text-sm font-medium text-gray-800">
               Include prefix RO:
@@ -52,7 +50,6 @@ export default function CUIGenerator() {
             </div>
           </div>
 
-          {/* Număr de cifre */}
           <div>
             <label className="block text-sm font-medium text-gray-800 mb-1">
               Număr de cifre (6–10):
@@ -67,7 +64,6 @@ export default function CUIGenerator() {
             />
           </div>
 
-          {/* Generează */}
           <button
             onClick={generate}
             className="w-full bg-gradient-to-r from-violet-700 to-indigo-600 text-white rounded-full py-3 text-sm font-medium shadow hover:scale-[1.03] transition"
@@ -75,7 +71,6 @@ export default function CUIGenerator() {
             Generează CUI
           </button>
 
-          {/* Rezultat */}
           {cui && (
             <div className="text-center text-violet-700 font-mono text-lg">
               {cui}{" "}

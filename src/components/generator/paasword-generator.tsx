@@ -45,7 +45,6 @@ export default function PasswordGenerator() {
     if (!password) return;
     await navigator.clipboard.writeText(password);
     setCopied(true);
-    setTimeout(() => setCopied(false), 60000);
   };
 
   return (
@@ -62,7 +61,6 @@ export default function PasswordGenerator() {
           text="Generate strong unique passwords"
         />
 
-        {/* Password Box */}
         <div className="bg-violet-50/80 rounded-xl px-4 py-4 flex items-center justify-between gap-4 min-h-[64px] border border-violet-200 shadow-inner">
           <div className="flex-1 font-mono text-lg break-words text-left pr-2 select-all">
             {password}
@@ -86,12 +84,10 @@ export default function PasswordGenerator() {
           </div>
         </div>
 
-        {/* Strength */}
         <p className={`text-xs text-center italic ${strengthColor[strength]}`}>
           {strengthText[strength]}
         </p>
 
-        {/* Slider */}
         <div className="space-y-2">
           <label className="text-sm block font-medium text-gray-700">
             Password length: <span className="font-semibold">{length}</span>
@@ -106,7 +102,6 @@ export default function PasswordGenerator() {
           />
         </div>
 
-        {/* Toggles */}
         <div className="space-y-4 pt-2">
           <Toggle
             label="Include Uppercase Letters"

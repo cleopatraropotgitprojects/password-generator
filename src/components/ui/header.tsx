@@ -1,11 +1,11 @@
 const OPTIONS = [
-  { label: "Password", key: "password" },
-  { label: "CNP", key: "cnp" },
+  { label: "Generate Password", key: "password" },
+  { label: "Generate CNP", key: "cnp" },
   { label: "Validate CNP", key: "cnp validator" },
-  { label: "CUI", key: "cui" },
-  { label: "Validate CUI", key: "cui validator" },
-  { label: "Iban", key: "iban" },
-  { label: "Phone", key: "phone" },
+  { label: "Generate CUI", key: "cui" },
+  // { label: "Validate CUI", key: "cui validator" },
+  { label: "Generate Iban", key: "iban" },
+  { label: "Generate Phone", key: "phone" },
 ];
 
 export default function Header({
